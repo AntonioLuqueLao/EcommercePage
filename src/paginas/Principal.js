@@ -4,12 +4,13 @@ import Recuadro from "../componentes/Recuadro";
 
 const Principal=()=> {
 
-    const {productos} = useContext(Contexto);
+    const { productos, cantidadRenderizados, refObservador } = useContext(Contexto);
 
     return (
-        <>
-        {productos.map((producto, index) => <Recuadro key={index} indice={index} datos={producto}/>)}
-        </>
+        <div className="pagina-contenedora">
+        {productos.slice(0, cantidadRenderizados).map((producto, index) => <Recuadro key={index} indice={index} datos={producto}/>)}
+        <div ref={refObservador} style={{ height: "10px" }} />
+        </div>
     )
 }
 

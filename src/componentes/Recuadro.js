@@ -4,18 +4,36 @@ import Contexto from "../contexto/Contexto";
 
 const Recuadro=( {datos, indice} )=> {
 
-    const {total, setTotal, productos}=useContext(Contexto);
+    const {total, setTotal, productos, historial, setHistorial, logeado}=useContext(Contexto);
 
     const navegacion=useNavigate();
 
     const irMasInfo=()=> {
-            /* CAMBIAR ESTO PORQUE EL INDEX DEL TOTAL NO ES EL MISMO DEL ARRAY PRODUCTOS */
             for (let i = 0; i < productos.length; i++) {
                 if (datos===productos[i]) {
-                navegacion(`/MasInfo/${i}`, {replace: false});   
+                navegacion(`/MasInfo/${i}`, {replace: false});
+                window.scroll(0, 0);   
                 }
             }
+            añadirHistorial();
         }
+
+    const añadirHistorial = () => {
+        if (logeado.estado) {
+            const elementoIndice = historial.findIndex(item => item === productos[indice]);
+    
+            if (elementoIndice !== -1) {
+                const nuevoHistorial = [...historial];
+                nuevoHistorial.splice(elementoIndice, 1);
+                nuevoHistorial.unshift(productos[indice]);
+                setHistorial(nuevoHistorial);
+            } else {
+                setHistorial([productos[indice], ...historial]);
+            }
+        }
+    };
+    
+    
 
     const botonCompra=()=> {
         if (localStorage.getItem("estado")) {
@@ -44,12 +62,20 @@ const Recuadro=( {datos, indice} )=> {
     return (
 
         <div className="recuadros">
-        <img src={`${datos.foto}`} alt={datos.foto}/>
-        <h2>{datos.nombre}</h2>
-        <p>{`${datos.precio}$`}</p>
-        <div className={datos.seleccionado===true ? ".seleccionado" : "no-seleccionado"}/>
-        <button onClick={botonCompra}>{datos.seleccionado===true ? "Quitar del carro" : "Añadir al carro"}</button>
-        <button onClick={irMasInfo}>Más información</button>
+        <div className="recuadro-imagen-contenedor" onClick={irMasInfo}>
+        <img src={`${datos.fotos[0]}`} alt={`${datos.fotos[0]}`}/>
+        </div>
+        <div className="recuadro-texto">
+        <div className="recuadro-info">
+        <p className="recuadros-nombre" onClick={irMasInfo}>{datos.nombre}</p>
+        <p className="recuadros-precio">{`${datos.precio}$`}</p>
+        <p>Envío GRATIS</p>
+        </div>
+        <div className="recuadro-botones">
+        <button className="boton-añadirCarro" onClick={botonCompra}>{logeado.estado ? (datos.seleccionado===true ? "Quitar de la cesta" : "Añadir a la cesta") : "añadir a la cesta"}</button>
+        <button className="boton-compra">Comprar ya</button>
+        </div>
+        </div>
         </div>
 
     )

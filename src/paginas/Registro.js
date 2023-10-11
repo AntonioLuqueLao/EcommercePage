@@ -26,10 +26,10 @@ const Registro=()=> {
     }
     return (
         <>
-        <div>
-           <form onSubmit={e=> logearse(e)}>
-            <input type="text" onChange={e=> manejarInput(e)} value={state}/>
-            <input type="submit" value="Login" />
+        <div className="pagina-contenedora" id="pagina-contenedora-registro">
+           <form onSubmit={e=> logearse(e)} className="login-form">
+            <input type="text" onChange={e=> manejarInput(e)} value={state} placeholder="Introducir Antonio" className="input-registro"/>
+            <input type="submit" value="Login" className="login-button"/>
            </form>
         </div>
         </>

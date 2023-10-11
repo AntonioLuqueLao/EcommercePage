@@ -1,28 +1,26 @@
 import { useContext } from "react";
-import { NavLink, Outlet, useNavigate } from "react-router-dom"
+import { NavLink, Outlet } from "react-router-dom"
 import Contexto from "../contexto/Contexto";
 import Contador from "./Contador";
-import BarraBusqueda from "./BarraBusqueda";;
+import BarraBusqueda from "./BarraBusqueda";
+import Nav2 from "./Nav2";
+import NavCover from "./NavCover";
+import MenuDesplegable from "./MenuDesplegable";
 
 const Nav=()=> {
-    const navegacion=useNavigate();
-    const {deslogearme, logeado}=useContext(Contexto);
-
-    const deslogear=()=> {
-        deslogearme();
-        navegacion("/Registro", {replace: true})
-    }
+    const {logeado}=useContext(Contexto);
 
     return (
         <>
-        <nav>
+        <nav className="nav1">
+        <NavLink to="/"><div className="logo-container"><img className="logo" src="/logo/—Pngtree—cash on delivery payment ecommerce_6388629.png" alt="/logo/—Pngtree—cash on delivery payment ecommerce_6388629.png"/></div></NavLink>
         <BarraBusqueda />
-        {!logeado.estado && <NavLink to="/Registro">Registro</NavLink>}
-        <NavLink to="/">Principal</NavLink>
-        {logeado.estado && <NavLink to="/Ruta2">Total</NavLink>}
         {logeado.estado && <Contador />}
-        {logeado.estado && <button onClick={deslogear}>Salir</button>}
+        {!logeado.estado && <NavLink id="logo-registro" to="/Registro"><i class="fa-solid fa-user" id="user-icon"></i></NavLink>}
+        {logeado.estado && <MenuDesplegable />}
         </nav>
+        <Nav2/>
+        <NavCover/>
         <Outlet/>
         </>
     )

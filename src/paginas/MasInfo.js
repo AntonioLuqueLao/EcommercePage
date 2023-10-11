@@ -1,14 +1,18 @@
 import { useContext } from "react";
 import Contexto from "../contexto/Contexto";
 import { useNavigate, useParams } from "react-router-dom";
+import Galeria from "../componentes/Galeria";
+import Carrusel from "../componentes/Carrusel";
 
 const MasInfo=()=> {
 
     const navegacion=useNavigate();
-    const {productos, setTotal, total}=useContext(Contexto);
+    const {productos, setTotal, total, logeado}=useContext(Contexto);
     const parametro=useParams();
     const index=parametro.indice;
     const producto=productos[index];
+
+    const recomendados=productos.filter(item=> item.departamento===producto.departamento && item!==producto)
 
     const hacerAlgo=()=> {
         if (localStorage.getItem("estado")) {
@@ -36,12 +40,16 @@ const MasInfo=()=> {
 
     return (
         <>
-        <img src={`../${producto.foto}`} alt={producto.foto}/>
-        <h2>{producto.nombre}</h2>
-        <p>{`${producto.precio}$`}</p>
-        <div className={producto.seleccionado===true ? "seleccionado" : "no-seleccionado"}/>
-        <button onClick={hacerAlgo} >{producto.seleccionado===true ? "Quitar del carro" : "Añadir al carro"}</button>
-        {console.log(producto.foto)}
+        <Galeria fotos={producto.fotos}/>
+        <h2 className="masInfo-nombre">{producto.nombre}</h2>
+        <p className="masInfo-texto">{producto.texto}</p>
+        <p className="masInfo-precio">{`${producto.precio}$`}</p>
+        <button className="boton-añadirCarro-masInfo" onClick={hacerAlgo} >{logeado.estado ? (producto.seleccionado===true ? "Quitar de la cesta" : "Añadir a la cesta") : "añadir a la cesta"}</button>
+        <button className="boton-compra-masInfo">Comprar ya</button>
+        <div>
+        <h2 className="tambien-te-puede">También te puede interesar...</h2>
+        <Carrusel sugerencias={recomendados} />
+        </div>
         </>
     )
 }

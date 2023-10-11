@@ -7,10 +7,14 @@ import RutaPrivada from "./RutaPrivada";
 import RutaPublica from "./RutaPublica";
 import MasInfo from "../paginas/MasInfo";
 import Resultados from "../paginas/Resultados";
+import Historial from "../paginas/Historial";
+import Productos from "../paginas/Productos";
+import Footer from "../componentes/Footer";
 
 const Ruta1=()=> {
     return (
         <>
+        <div className="wrapper">
         <Routes>
             <Route element={<Nav/>}>
             <Route path="/" element={
@@ -19,12 +23,19 @@ const Ruta1=()=> {
             <Route path="/Resultados" element={
             <Resultados/>
         } />
+            <Route path="/Productos/:seccion" element={<Productos />}/>
             <Route path="/Registro" element={
             <RutaPublica>
             <Registro/>
             </RutaPublica>
             } />
             <Route path="/MasInfo/:indice" element={<MasInfo/>} />
+            <Route path="/Historial" element={
+            <RutaPrivada>
+            <Historial/>
+            </RutaPrivada>
+            }>
+            </Route>
             <Route path="/Ruta2/*" element={
             <RutaPrivada>
             <Ruta2/>
@@ -32,6 +43,8 @@ const Ruta1=()=> {
             } />
             </Route>
         </Routes>
+        <Footer />
+        </div>
         </>
     )
 }
