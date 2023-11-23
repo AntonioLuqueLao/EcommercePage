@@ -53,7 +53,7 @@
 
 /* Galeria */
 .galeria #flechas {
-  margin: 0px 21em;
+  margin: 0px 15vw;
 }
 .galeria-imagenes-container {
   position: relative;
@@ -360,7 +360,7 @@ height: auto;
 
 .nav2 {
   background-color: #232f3e;
-  padding: 5px;
+  padding: 5px 10px;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -505,9 +505,9 @@ background: #ffc814;
   border: 1px transparent solid;
   border-radius: 13px;
   margin-right: 5px;
-}
-.boton-añadirCarro:hover {
   cursor: pointer;
+}
+.boton-añadirCarro-masInfo:hover {
   background-color: #ecbb1a;
 }
 .boton-compra-masInfo {
@@ -532,12 +532,12 @@ margin-left: 70px;
   font-size: large;
   text-align: left;
   margin: 20px auto;
-  width: 800px;
+  width: 90vw;
 }
 .masInfo-precio {
   text-align: left;
   font-size: large;
-  width: 800px;
+  width: 80vw;
   margin: 25px auto;
   color: #B12704;
 }
@@ -546,6 +546,16 @@ padding: 25px 10px;
 display: flex;
 justify-content: center;
 max-width: 100%;
+}
+.carrusel-container .izquierda {
+  position: relative;
+  left: 4vw;
+  z-index: 2;
+}
+.carrusel-container .derecha {
+  position: relative;
+  right: 4vw;
+  z-index: 2;
 }
 
 .carrusel-container .recuadros {
@@ -558,7 +568,7 @@ cursor: pointer;
 background-color: white;
 border-radius: 7px;
 border: 1px solid gray;
-width: 60px;
+width: 6%;
 height: 60px;
 opacity: 70%;
 transition: 0.2s ease-in-out;
@@ -576,6 +586,74 @@ transition: 0.2s ease-in-out;
 text-align: start;
 margin-top: 15px;
 }
+
+.ventana-precompra {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: white;
+  width: 80vw;
+  height: 80vh;
+  z-index: 8;
+  border-radius: 5px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.ventana-precompra img {
+  width: 30vw;
+}
+
+.ventana-precompra-hide {
+  display: none;
+}
+.x {
+  background-color:red;
+  color: white; 
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  padding: 0.6% 0.6%;
+  margin: 5px;
+  font-size: 125%;
+}
+.x:hover {
+  background-color: rgb(235, 7, 7);
+}
+.x-container {
+  display: flex;
+  justify-content: flex-end;
+  background-color: lightgray;
+  width: 100%;
+  border-radius: 5px 5px 0px 0px;
+}
+.contenedor-compraVentana {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-color: rgba(211, 211, 211, 0.349);
+  width: 90%;
+  height: 30%;
+  border-radius: 5px;
+  margin-bottom: 1em;
+  }
+  .contenedor-compraVentana > button {
+  width: 60%;
+  height: 25%;
+  background: #FFD814;
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  }
+  .contenedor-compraVentana > button:hover {
+  background: #ffc814;
+  }
 
 /* Historial */
 
@@ -756,15 +834,11 @@ background-color: rgb(240, 239, 239);
     justify-content: space-between;
 
   }
-  .carrusel-container .izquierda {
-    position: relative;
-    left: 2.5em;
-    z-index: 2;
+.carrusel-container .izquierda {
+    left: 6vw;
   }
   .carrusel-container .derecha {
-    position: relative;
-    right: 2.5em;
-    z-index: 2;
+    right: 6vw;
   }
   .recomendados-container {
     size: 100vw;
@@ -807,6 +881,303 @@ background-color: rgb(240, 239, 239);
   }
 }
 
+@media screen and (min-width: 481px) and (max-width: 680px) {
+  .nav1 {
+    height: 110px;
+  }
+  .searchBar-form {
+    height: fit-content;
+    width: 100%;
+    position: relative;
+    margin: 20px auto;
+    bottom: -30px;
+    display: flex;
+  } 
+  .searchBar-bar {
+    width: 60vw;
+    height: 2em;
+  }
+  .searchBar-button {
+    top:-6px;
+    width: 8vw;
+    height: 2.4em;
+  }
+  .pagina-contenedora {
+  justify-content: center;
+  }
+  .logo-container {
+    height: 65px;
+    width: 85px;
+    position: absolute;
+    top: 0;
+    left: 5rem;
+  }
+  .dropdown {
+    position: absolute;
+    top: 1rem;
+    left: 40%;
+  }
+  .carro-link {
+    position: absolute;
+    top: 0.5rem;
+    right: 5rem;
+  }
+  .carro-link i {
+    display: none;
+  }
+  #user-icon {
+    position: absolute;
+    top: 0.5rem;
+    right: 5rem;
+  }
+  .input-registro {
+    width: 70%;
+  }
+  .login-button {
+    width: 10%;
+  }
+  .login-form {
+    width: 90%;
+  }
+   /* CARRO */
+   .pagina-contenedora-carro {
+    align-items: center;
+    flex-direction: column;
+    justify-content: start;
+  }
+  .cesta {
+    width: 100%;
+  }
+  .contenedor-compra {
+    width: 90%;
+    margin-top: 2em;
+  }
+  .contenedor-compra button {
+    width: 95%;
+    height: 3em;
+  }
+  /* Galería */
+  .galeria {
+    height: fit-content;
+  }
+  #imagenPrincipal {
+    width: auto;
+    height: 5em;
+  }
+  #imagenlateral {
+    width: auto;
+    height: 2em;
+    margin: 2em;
+  }
+  .galeria #flechas {
+    margin: 0 4.5em;
+    margin-bottom: 3em;
+  }
+    /* Carrusel */
+    .recuadro1-container {
+      display: none;
+    }
+    .carrusel-container {
+      width: 100%;
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+    .recomendados-container {
+      width: 100vw;
+      display: flex;
+      justify-content: space-between;
+  
+    }
+/*     .carrusel-container .izquierda {
+      position: relative;
+      left: 2.5em;
+      z-index: 2;
+    }
+    .carrusel-container .derecha {
+      position: relative;
+      right: 2.5em;
+      z-index: 2;
+    } */
+    .recomendados-container {
+      size: 100vw;
+    }
+    .recomendados-container .recuadros {
+      width: 9.5em;
+      height: fit-content;
+      margin: auto 0px;
+    }
+    .recomendados-container .recuadro-imagen-contenedor {
+      width: 6em;
+      height: 6em;
+    }
+    .recomendados-container button {
+      height: 4em;
+      width: 5em;
+    }
+}
+
+@media screen and (min-width: 681px) and (max-width: 880px) { 
+  .nav1 {
+    height: 110px;
+  }
+  .searchBar-form {
+    height: fit-content;
+    width: 100%;
+    position: relative;
+    margin: 20px auto;
+    bottom: -30px;
+    display: flex;
+  } 
+  .searchBar-bar {
+    width: 60vw;
+    height: 2em;
+  }
+  .searchBar-button {
+    top:-6px;
+    width: 8vw;
+    height: 2.4em;
+  }
+  .pagina-contenedora {
+  justify-content: center;
+  }
+  .logo-container {
+    height: 65px;
+    width: 85px;
+    position: absolute;
+    top: 0;
+    left: 5rem;
+  }
+  .dropdown {
+    position: absolute;
+    top: 1rem;
+    left: 40%;
+  }
+  .carro-link {
+    position: absolute;
+    top: 0.5rem;
+    right: 5rem;
+  }
+  .carro-link i {
+    display: none;
+  }
+  #user-icon {
+    position: absolute;
+    top: 0.5rem;
+    right: 5rem;
+  }
+  .input-registro {
+    width: 70%;
+  }
+  .login-button {
+    width: 10%;
+  }
+  .login-form {
+    width: 90%;
+  }
+   /* CARRO */
+   .pagina-contenedora-carro {
+    align-items: center;
+    flex-direction: column;
+    justify-content: start;
+  }
+  .cesta {
+    width: 100%;
+  }
+  .contenedor-compra {
+    width: 90%;
+    margin-top: 2em;
+  }
+  .contenedor-compra button {
+    width: 95%;
+    height: 3em;
+  }
+  /* Galería */
+  .galeria {
+    height: fit-content;
+  }
+  #imagenPrincipal {
+    width: auto;
+    height: 8em;
+  }
+  #imagenlateral {
+    width: auto;
+    height: 3em;
+    margin: 3em;
+  }
+  .galeria #flechas {
+    margin: 0 4.5em;
+    margin-bottom: 3em;
+  }
+   /* Carrusel */
+  .recuadro1-container {
+    display: block;
+  }
+  .carrusel-container {
+    width: 100%;
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .recomendados-container {
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+
+  }
+  .carrusel-container .izquierda {
+    position: relative;
+    left: 2.5em;
+    z-index: 2;
+  }
+  .carrusel-container .derecha {
+    position: relative;
+    right: 2.5em;
+    z-index: 2;
+  }
+  .recomendados-container {
+    size: 100vw;
+  }
+  .recomendados-container .recuadros {
+    width: 9.5em;
+    height: fit-content;
+    margin: auto 0px;
+  }
+  .recomendados-container .recuadro-imagen-contenedor {
+    width: 6em;
+    height: 6em;
+  }
+  .recomendados-container button {
+    height: 4em;
+    width: 5em;
+  }
+}
+
+@media screen and (min-width: 881px) and (max-width: 1050px) { 
+  .galeria {
+    height: fit-content;
+  }
+  #imagenPrincipal {
+    width: auto;
+    height: 8em;
+  }
+  #imagenlateral {
+    width: auto;
+    height: 3em;
+    margin: 3em;
+  }
+  .galeria #flechas {
+    margin: 0 4.5em;
+    margin-bottom: 3em;
+  }
+.recomendados-container .recuadros {
+  width: 12em;
+  height: fit-content;
+  margin: auto 10px;
+}
+.recomendados-container .recuadro-imagen-contenedor {
+  width: 6em;
+  height: 6em;
+}
+}
 /* * {
   border: 1px solid red;
 } */

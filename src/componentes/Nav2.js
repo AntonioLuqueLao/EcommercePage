@@ -4,7 +4,7 @@ const Nav2=()=> {
     
     return (
         <nav className="nav2">
-            <NavLink to="/">Destacados</NavLink>
+            {/* <NavLink to="/">Destacados</NavLink> */}
             <NavLink to="/Productos/Calzado">Calzado</NavLink>
             <NavLink to="/Productos/Consolas">Consolas</NavLink>
             <NavLink to="/Productos/Videjuegos">Videjuegos</NavLink>

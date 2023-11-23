@@ -4,7 +4,7 @@ import Contexto from "../contexto/Contexto";
 
 const Recuadro=( {datos, indice} )=> {
 
-    const {total, setTotal, productos, historial, setHistorial, logeado}=useContext(Contexto);
+    const {total, setTotal, productos, historial, setHistorial, logeado, setVentanaPrecompra, ventanitaPrecompra, setIndiceVentana}=useContext(Contexto);
 
     const navegacion=useNavigate();
 
@@ -59,6 +59,17 @@ const Recuadro=( {datos, indice} )=> {
         }
     }
 
+    const compraDirecta = () => {
+
+        if (logeado.estado && !ventanitaPrecompra) {
+            setVentanaPrecompra(true);
+            setIndiceVentana(indice);
+        }
+        else {
+            navegacion('/Registro', {replace: false});
+        }
+    }
+
     return (
 
         <div className="recuadros">
@@ -73,7 +84,7 @@ const Recuadro=( {datos, indice} )=> {
         </div>
         <div className="recuadro-botones">
         <button className="boton-añadirCarro" onClick={botonCompra}>{logeado.estado ? (datos.seleccionado===true ? "Quitar de la cesta" : "Añadir a la cesta") : "añadir a la cesta"}</button>
-        <button className="boton-compra">Comprar ya</button>
+        <button className="boton-compra" onClick={compraDirecta}>Comprar ya</button>
         </div>
         </div>
         </div>

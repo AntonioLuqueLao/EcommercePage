@@ -262,6 +262,9 @@ const Provider = ({ children }) => {
     const [cantidadRenderizados, setCantidadRenderizados] = useState(10);
     const refObservador = useRef(null);
 
+    const [ventanitaPrecompra, setVentanaPrecompra]=useState(false);
+    const [indiceVentana, setIndiceVentana]=useState(0);
+
     useEffect(() => {
         if (refObservador.current) {
             const observador = new IntersectionObserver(handleObservador, {
@@ -330,7 +333,11 @@ const Provider = ({ children }) => {
             mostrarSugerencias, 
             setMostrarSugerencias,
             highlight, 
-            setHighlight
+            setHighlight,
+            ventanitaPrecompra,
+            setVentanaPrecompra,
+            indiceVentana,
+            setIndiceVentana
         }}>
             {children}
         </Contexto.Provider>

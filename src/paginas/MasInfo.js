@@ -7,7 +7,7 @@ import Carrusel from "../componentes/Carrusel";
 const MasInfo=()=> {
 
     const navegacion=useNavigate();
-    const {productos, setTotal, total, logeado}=useContext(Contexto);
+    const {productos, setTotal, total, logeado, ventanitaPrecompra, setVentanaPrecompra, setIndiceVentana}=useContext(Contexto);
     const parametro=useParams();
     const index=parametro.indice;
     const producto=productos[index];
@@ -38,6 +38,13 @@ const MasInfo=()=> {
         }
     }
 
+    const compraDirecta = () => {
+        if (!ventanitaPrecompra) {
+            setVentanaPrecompra(true);
+            setIndiceVentana(index);
+        }
+    }
+
     return (
         <>
         <Galeria fotos={producto.fotos}/>
@@ -45,7 +52,7 @@ const MasInfo=()=> {
         <p className="masInfo-texto">{producto.texto}</p>
         <p className="masInfo-precio">{`${producto.precio}$`}</p>
         <button className="boton-añadirCarro-masInfo" onClick={hacerAlgo} >{logeado.estado ? (producto.seleccionado===true ? "Quitar de la cesta" : "Añadir a la cesta") : "añadir a la cesta"}</button>
-        <button className="boton-compra-masInfo">Comprar ya</button>
+        <button className="boton-compra-masInfo" onClick={compraDirecta}>Comprar ya</button>
         <div>
         <h2 className="tambien-te-puede">También te puede interesar...</h2>
         <Carrusel sugerencias={recomendados} />

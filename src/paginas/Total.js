@@ -51,7 +51,7 @@ return (
           {total.map((producto, index) => (
             <div className="contenedor-producto-carro" key={index} indice={index}>
               <div className="contenedor-imagen-carro">
-                <img src={producto.fotos[0]} alt={producto.fotos[0]} />
+                <img src={producto.fotos[0]} alt={producto.fotos[0]} onClick={() => irMasInfo(producto)}/>
               </div>
               <div className="contenedor-info-carro">
                 <p className="carro-nombre-producto">{producto.nombre}</p>

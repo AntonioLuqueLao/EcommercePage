@@ -6,6 +6,8 @@ import BarraBusqueda from "./BarraBusqueda";
 import Nav2 from "./Nav2";
 import NavCover from "./NavCover";
 import MenuDesplegable from "./MenuDesplegable";
+import VentanaPrecompra from "./VentanaPrecompra";
+import VentanaCover from "./VentanaCover";
 
 const Nav=()=> {
     const {logeado}=useContext(Contexto);
@@ -21,6 +23,8 @@ const Nav=()=> {
         </nav>
         <Nav2/>
         <NavCover/>
+        <VentanaCover/>
+        <VentanaPrecompra/>
         <Outlet/>
         </>
     )
