@@ -5,13 +5,12 @@ import Contexto from '../contexto/Contexto';
 
 const MenuDesplegable = () => {
   const navegacion=useNavigate();
-  const {deslogearme, logeado, state, setState}=useContext(Contexto);
+  const {deslogearme, state, setState}=useContext(Contexto);
 
   const deslogear=()=> {
     deslogearme();
     navegacion("/Registro", {replace: true})
     setState("");
-    console.log(logeado);
 }
 
   return (
