@@ -5,18 +5,19 @@ import Contexto from '../contexto/Contexto';
 
 const MenuDesplegable = () => {
   const navegacion=useNavigate();
-  const {deslogearme, logeado}=useContext(Contexto);
+  const {deslogearme, logeado, state, setState}=useContext(Contexto);
 
   const deslogear=()=> {
     deslogearme();
     navegacion("/Registro", {replace: true})
+    setState("");
     console.log(logeado);
 }
 
   return (
     <div className="dropdown">
       <button className="dropdown-button">
-        <span>Hola usuario</span>
+        <span>Hola {state.length>0 ? state : "usuario"}</span>
         <i className="fa-solid fa-arrow-down"></i>
       </button>
 

@@ -31,6 +31,7 @@ const Recuadro=( {datos, indice} )=> {
                 setHistorial([productos[indice], ...historial]);
             }
         }
+        console.log(historial);
     };
     
     
@@ -62,8 +63,9 @@ const Recuadro=( {datos, indice} )=> {
     const compraDirecta = () => {
 
         if (logeado.estado && !ventanitaPrecompra) {
+            const indexVentanita=productos.findIndex( item => item.nombre===datos.nombre)
+            setIndiceVentana(indexVentanita);
             setVentanaPrecompra(true);
-            setIndiceVentana(indice);
         }
         else {
             navegacion('/Registro', {replace: false});

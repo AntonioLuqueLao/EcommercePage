@@ -9,10 +9,10 @@ const Registro=()=> {
 
     const logearse=(e)=> {
         e.preventDefault();
-        if(state.trim()==="Antonio") {
+
+        if(state.trim()!=="" && state.trim().length<10) {
         logearme();
         navegacion("/", {replace: true});
-        setState("");
     }
     else {
         console.log("Usuario incorrecto");
@@ -28,7 +28,7 @@ const Registro=()=> {
         <>
         <div className="pagina-contenedora" id="pagina-contenedora-registro">
            <form onSubmit={e=> logearse(e)} className="login-form">
-            <input type="text" onChange={e=> manejarInput(e)} value={state} placeholder="Introducir: Antonio" className="input-registro"/>
+            <input type="text" onChange={e=> manejarInput(e)} value={state} placeholder="Introduce tu nombre o un apodo menor a 10 caracteres." className="input-registro"/>
             <input type="submit" value="Login" className="login-button"/>
            </form>
         </div>
