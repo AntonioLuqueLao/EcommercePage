@@ -11,20 +11,17 @@ import Historial from "../paginas/Historial";
 import Productos from "../paginas/Productos";
 import Footer from "../componentes/Footer";
 import { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import { useContext } from "react";
 import Contexto from "../contexto/Contexto";
 
 const Ruta1=()=> {
 
     const {deslogearme, setState}=useContext(Contexto);
-    const navegacion=useNavigate();
 
     useEffect(() => {
 
         return () => {
             deslogearme();
-            navegacion("/", {replace: true})
             setState("");
         }
             // eslint-disable-next-line react-hooks/exhaustive-deps
