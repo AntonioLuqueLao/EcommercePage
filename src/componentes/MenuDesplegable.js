@@ -9,7 +9,7 @@ const MenuDesplegable = () => {
 
   const deslogear=()=> {
     deslogearme();
-    navegacion("/Registro", {replace: true})
+    navegacion("/", {replace: true})
     setState("");
 }
 

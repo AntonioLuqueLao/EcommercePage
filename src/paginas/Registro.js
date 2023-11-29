@@ -12,7 +12,7 @@ const Registro=()=> {
 
         if(state.trim()!=="" && state.trim().length<10) {
         logearme();
-        navegacion("/", {replace: true});
+        navegacion("/Principal", {replace: true});
     }
     else {
         console.log("Usuario incorrecto");

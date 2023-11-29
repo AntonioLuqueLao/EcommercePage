@@ -17,14 +17,14 @@ const Ruta1=()=> {
         <div className="wrapper">
         <Routes>
             <Route element={<Nav/>}>
-            <Route path="/" element={
+            <Route path="/Principal" element={
             <Principal/>
         } />
             <Route path="/Resultados" element={
             <Resultados/>
         } />
             <Route path="/Productos/:seccion" element={<Productos />}/>
-            <Route path="/Registro" element={
+            <Route path="/" element={
             <RutaPublica>
             <Registro/>
             </RutaPublica>

@@ -34,15 +34,20 @@ const MasInfo=()=> {
                 console.log(total);
             }
         } else {
-           navegacion('/Registro', {replace: false});
+           navegacion('/', {replace: false});
         }
     }
 
     const compraDirecta = () => {
+        if (localStorage.getItem("estado")) {
         if (!ventanitaPrecompra) {
             setVentanaPrecompra(true);
             setIndiceVentana(index);
         }
+    }
+    else {
+        navegacion('/', {replace: false});
+    }
     }
 
     return (

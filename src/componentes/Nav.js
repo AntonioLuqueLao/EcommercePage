@@ -15,10 +15,10 @@ const Nav=()=> {
     return (
         <>
         <nav className="nav1">
-        <NavLink to="/"><div className="logo-container"><img className="logo" src="/logo/—Pngtree—cash on delivery payment ecommerce_6388629.png" alt="/logo/—Pngtree—cash on delivery payment ecommerce_6388629.png"/></div></NavLink>
+        <NavLink to="/Principal"><div className="logo-container"><img className="logo" src="/logo/—Pngtree—cash on delivery payment ecommerce_6388629.png" alt="/logo/—Pngtree—cash on delivery payment ecommerce_6388629.png"/></div></NavLink>
         <BarraBusqueda />
         {logeado.estado && <Contador />}
-        {!logeado.estado && <NavLink id="logo-registro" to="/Registro"><i class="fa-solid fa-user" id="user-icon"></i></NavLink>}
+        {!logeado.estado && <NavLink id="logo-registro" to="/"><i class="fa-solid fa-user" id="user-icon"></i></NavLink>}
         {logeado.estado && <MenuDesplegable />}
         </nav>
         <Nav2/>

@@ -56,7 +56,7 @@ const Recuadro=( {datos, indice} )=> {
                 console.log(total);
             }
         } else {
-           navegacion('/Registro', {replace: false});
+           navegacion('/', {replace: false});
         }
     }
 
@@ -68,7 +68,7 @@ const Recuadro=( {datos, indice} )=> {
             setVentanaPrecompra(true);
         }
         else {
-            navegacion('/Registro', {replace: false});
+            navegacion('/', {replace: false});
         }
     }
 
