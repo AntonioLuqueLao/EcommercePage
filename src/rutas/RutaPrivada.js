@@ -6,7 +6,7 @@ const RutaPrivada=({children})=> {
     const {logeado}=useContext(Contexto)
         return (logeado.estado)
         ? children
-        : <Navigate to="/Registro" />
+        : <Navigate to="/" />
 }
 
 export default RutaPrivada;
